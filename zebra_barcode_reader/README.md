@@ -1,10 +1,10 @@
-# Zebra RFID Reader plugin
+# Zebra Barcode Reader plugin
 
 <?code-excerpt path-base="example/lib"?>
 
-The Unified Zebra RFID library for Android library that adds a comprehensive set of APIs to easily
-create powerful applications for Zebra RFID Handheld readers and Fixed readers.
-RFID SDK for Android includes class library, sample apps and source code to enable developers to
+The Unified Zebra Barcode library for Android library that adds a comprehensive set of APIs to easily
+create powerful applications for Zebra Barcode Handheld readers and Fixed readers.
+Barcode SDK for Android includes class library, sample apps and source code to enable developers to
 easily build apps that take full advantage of the power of Zebra devices.
 Wraps platform-specific persistent storage for simple data
 (NSUserDefaults on iOS and macOS, SharedPreferences on Android, etc.).
@@ -14,7 +14,7 @@ returning, so this plugin must not be used for storing critical data.
 
 |             | Android |
 |-------------|---------|
-| **Support** | SDK 27+ |
+| **Support** | SDK 23+ |
 
 ## Supported Devices
 
@@ -38,13 +38,13 @@ returning, so this plugin must not be used for storing critical data.
 
 Here are small examples that show you how to use the API.
 
-#### RFID Handheld readers Connection
+#### Barcode Reader Connection
 
 <?code-excerpt "readme_excerpts.dart (Write)"?>
 
 ``` dart
 // Obtain shared preferences.
-final ZebraRfidReader reader = await ZebraRfidReader.getInstance();
+final ZebraBarcodeReader reader = await ZebraBarcodeReader.getInstance();
 
 // Connect to device
 await reader.connect();

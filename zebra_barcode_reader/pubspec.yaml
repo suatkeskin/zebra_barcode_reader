@@ -1,5 +1,6 @@
-name: zebra_rfid_reader
+name: zebra_barcode_reader
 description: Flutter plugin for reading barcodes.
+repository: https://github.com/suatkeskin/zebra_barcode_reader/tree/main/zebra_barcode_reader
 version: 1.0.0
 
 environment:
@@ -10,18 +11,16 @@ flutter:
   plugin:
     platforms:
       android:
-        default_package: zebra_rfid_reader_android
+        default_package: zebra_barcode_reader
 
 dependencies:
   flutter:
     sdk: flutter
-  zebra_barcode_reader_android:
-    path: ../zebra_barcode_reader_android
-  zebra_barcode_reader_platform_interface:
-    path: ../zebra_barcode_reader_platform_interface
+  zebra_barcode_reader_android: ^1.0.0
+  zebra_barcode_reader_platform_interface: ^1.0.0
 
 dev_dependencies:
-  flutter_lints: ^3.0.0
+  flutter_lints: ^4.0.0
   flutter_test:
     sdk: flutter
   integration_test:
@@ -29,4 +28,5 @@ dev_dependencies:
 
 topics:
   - zebra
-  - rfid mc3300x
+  - barcode
+  - mc3300x

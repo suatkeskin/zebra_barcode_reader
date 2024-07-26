@@ -1,6 +1,6 @@
 name: zebra_barcode_reader_android
 description: Android implementation of the zebra_barcode_reader_android plugin
-repository: https://github.com/suatkeskin/zebra_barcode_reader/zebra_barcode_reader_android
+repository: https://github.com/suatkeskin/zebra_barcode_reader/tree/main/zebra_barcode_reader_android
 version: 1.0.0
 
 environment:
@@ -20,9 +20,7 @@ dependencies:
   flutter:
     sdk: flutter
   stream_transform: ^2.1.0
-  #  zebra_barcode_reader_platform_interface: ^1.0.0
-  zebra_barcode_reader_platform_interface:
-    path: ../zebra_barcode_reader_platform_interface
+  zebra_barcode_reader_platform_interface: ^1.0.0
 
 dev_dependencies:
   build_runner: ^2.4.11
@@ -36,4 +34,5 @@ dev_dependencies:
 
 topics:
   - zebra
-  - barcode mc3300x
+  - barcode
+  - mc3300x
