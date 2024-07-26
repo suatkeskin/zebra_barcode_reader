@@ -1,5 +1,5 @@
-name: zebra_rfid_reader_example
-description: "Demonstrates how to use the zebra_rfid_reader plugin."
+name: zebra_barcode_reader_example
+description: "Demonstrates how to use the zebra_barcode_reader plugin."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
@@ -17,10 +17,9 @@ dependencies:
   flutter:
     sdk: flutter
   stream_transform: ^2.1.0
-  permission_handler: ^11.3.1
-  zebra_rfid_reader:
+  zebra_barcode_reader:
     # When depending on this package from a real application you should use:
-    #   zebra_rfid_reader: ^x.y.z
+    #   zebra_barcode_reader: ^x.y.z
     # See https://dart.dev/tools/pub/dependencies#version-constraints
     # The example app is bundled with the plugin so we use a path dependency on
     # the parent directory to use the current plugin's version.

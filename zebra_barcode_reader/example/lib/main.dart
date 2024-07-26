@@ -1,12 +1,10 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:zebra_rfid_reader/zebra_rfid_reader.dart';
-import 'package:zebra_rfid_reader_example/src/util/permission_manager.dart';
+import 'package:zebra_barcode_reader/zebra_barcode_reader.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  PermissionManager.instance.checkAndRequestBluetoothPermission();
   runApp(const MyApp());
 }
 

@@ -1,6 +1,6 @@
 name: zebra_barcode_reader_platform_interface
 description: Android implementation of the zebra_barcode_reader_platform_interface plugin
-repository: https://github.com/suatkeskin/zebra_barcode_reader/zebra_barcode_reader_android
+repository: https://github.com/suatkeskin/zebra_barcode_reader/tree/main/zebra_barcode_reader_platform_interface
 version: 1.0.0
 
 environment:
@@ -22,4 +22,5 @@ dev_dependencies:
 
 topics:
   - zebra
-  - barcode mc3300x
+  - barcode
+  - mc3300x
