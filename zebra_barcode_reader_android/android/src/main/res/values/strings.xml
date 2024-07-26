@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="error_unknown">An unknown error occurred in Barcode API.</string>
+    <string name="barcode_reader_connect_failed">Failed to connect to barcode reader device. Please try again or contact support.</string>
+    <string name="barcode_reader_disconnect_failed">Failed to disconnect from the barcode reader device. Please try again or contact support.</string>
+    <string name="barcode_reader_config_error">An error occurred during the device configuration process. Please try again or contact support.</string>
+
+    <string name="emdk_status_failure">Operation failed.</string>
+    <string name="emdk_status_unknown">Unknown status.</string>
+    <string name="emdk_status_null_pointer">A null pointer was encountered.</string>
+    <string name="emdk_status_empty_profilename">Profile name is empty.</string>
+    <string name="emdk_status_emdk_not_opened">EMDK has not been opened.</string>
+    <string name="emdk_status_check_xml">Please check the XML configuration.</string>
+    <string name="emdk_status_previous_request_in_progress">A previous request is still in progress.</string>
+    <string name="emdk_status_processing">Processing…</string>
+    <string name="emdk_status_no_data_listener">No data listener available.</string>
+    <string name="emdk_status_feature_not_ready">Feature is not ready to use.</string>
+    <string name="emdk_status_feature_not_supported">Feature is not supported.</string>
+    <string name="emdk_extended_none">No additional status information.</string>
+    <string name="emdk_extended_profile_not_found_config">Profile not found in configuration.</string>
+    <string name="emdk_extended_feature_type_not_found_config">Feature type not found in configuration.</string>
+    <string name="emdk_extended_feature_name_not_found_config">Feature name not found in configuration.</string>
+    <string name="emdk_extended_feature_name_not_found_extradata">Feature name not found in extra data.</string>
+    <string name="emdk_extended_feature_type_not_found_extradata">Feature type not found in extra data.</string>
+    <string name="emdk_extended_profile_not_found_extradata">Profile not found in extra data.</string>
+    <string name="emdk_extended_feature_not_unique_config">Feature is not unique in configuration.</string>
+    <string name="emdk_extended_feature_not_unique_extradata">Feature is not unique in extra data.</string>
+    <string name="emdk_extended_dependency_component_failure">Dependency component failure.</string>
+    <string name="emdk_extended_general_exception">A general exception occurred.</string>
+    <string name="emdk_extended_namevalue_mismatch_config">Name-value mismatch in configuration.</string>
+    <string name="emdk_extended_namevalue_mismatch_extradata">Name-value mismatch in extra data.</string>
+    <string name="emdk_extended_invalid_profile_configuration">Invalid profile configuration.</string>
+    <string name="emdk_extended_profile_name_format_error">Profile name format error.</string>
+    <string name="emdk_extended_activity_selection_merging_not_supported">Activity selection merging is not supported.</string>
+    <string name="emdk_extended_invalid_value">Invalid value provided.</string>
+    <string name="emdk_extended_app_not_allowed_submit_xml">App is not allowed to submit XML.</string>
+
+</resources>
+

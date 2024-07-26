@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="error_unknown">Beklenmedik bir hata oluştu.</string>
+    <string name="barcode_reader_connect_failed">Barkod okuyucu cihazına bağlanma işlemi başarısız oldu. Lütfen tekrar deneyin veya destek birimine başvurun.</string>
+    <string name="barcode_reader_disconnect_failed">Barkod okuyucu cihazından bağlantı kesme işlemi başarısız oldu. Lütfen tekrar deneyin veya destek birimine başvurun.</string>
+    <string name="barcode_reader_config_error">Cihaz konfigürasyon işlemi sırasında bir hata oluştu. Lütfen tekrar deneyin veya destek birimine başvurun.</string>
+
+    <string name="emdk_status_failure">İşlem başarısız.</string>
+    <string name="emdk_status_unknown">Bilinmeyen durum.</string>
+    <string name="emdk_status_null_pointer">Bir null işaretçi ile karşılaşıldı.</string>
+    <string name="emdk_status_empty_profilename">Profil adı boş.</string>
+    <string name="emdk_status_emdk_not_opened">EMDK açılmadı.</string>
+    <string name="emdk_status_check_xml">Lütfen XML yapılandırmasını kontrol edin.</string>
+    <string name="emdk_status_previous_request_in_progress">Önceki istek hala işleniyor.</string>
+    <string name="emdk_status_processing">İşleniyor…</string>
+    <string name="emdk_status_no_data_listener">Veri dinleyicisi yok.</string>
+    <string name="emdk_status_feature_not_ready">Özellik kullanıma hazır değil.</string>
+    <string name="emdk_status_feature_not_supported">Özellik desteklenmiyor.</string>
+    <string name="emdk_extended_none">Ek durum bilgisi yok.</string>
+    <string name="emdk_extended_profile_not_found_config">Profil yapılandırmada bulunamadı.</string>
+    <string name="emdk_extended_feature_type_not_found_config">Özellik türü yapılandırmada bulunamadı.</string>
+    <string name="emdk_extended_feature_name_not_found_config">Özellik adı yapılandırmada bulunamadı.</string>
+    <string name="emdk_extended_feature_name_not_found_extradata">Özellik adı ek verilerde bulunamadı.</string>
+    <string name="emdk_extended_feature_type_not_found_extradata">Özellik türü ek verilerde bulunamadı.</string>
+    <string name="emdk_extended_profile_not_found_extradata">Profil ek verilerde bulunamadı.</string>
+    <string name="emdk_extended_feature_not_unique_config">Özellik yapılandırmada benzersiz değil.</string>
+    <string name="emdk_extended_feature_not_unique_extradata">Özellik ek verilerde benzersiz değil.</string>
+    <string name="emdk_extended_dependency_component_failure">Bağımlılık bileşeni arızası.</string>
+    <string name="emdk_extended_general_exception">Genel bir istisna oluştu.</string>
+    <string name="emdk_extended_namevalue_mismatch_config">Yapılandırmada ad-değer uyuşmazlığı.</string>
+    <string name="emdk_extended_namevalue_mismatch_extradata">Ek verilerde ad-değer uyuşmazlığı.</string>
+    <string name="emdk_extended_invalid_profile_configuration">Geçersiz profil yapılandırması.</string>
+    <string name="emdk_extended_profile_name_format_error">Profil adı biçim hatası.</string>
+    <string name="emdk_extended_activity_selection_merging_not_supported">Etkinlik seçimi birleştirme desteklenmiyor.</string>
+    <string name="emdk_extended_invalid_value">Geçersiz değer sağlandı.</string>
+    <string name="emdk_extended_app_not_allowed_submit_xml">Uygulamanın XML göndermesine izin verilmiyor.</string>
+
+</resources>
