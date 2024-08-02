@@ -2,10 +2,10 @@ name: zebra_barcode_reader_platform_interface
 description: A common platform interface for the zebra_barcode_reader plugin.
 repository: https://github.com/suatkeskin/zebra_barcode_reader/tree/main/zebra_barcode_reader_platform_interface
 issue_tracker: https://github.com/suatkeskin/zebra_barcode_reader/issues
-version: 1.0.1
+version: 1.0.3
 
 environment:
-  sdk: '>=3.4.4 <4.0.0'
+  sdk: '>=3.4.3 <4.0.0'
   flutter: '>=3.22.0'
 
 dependencies:

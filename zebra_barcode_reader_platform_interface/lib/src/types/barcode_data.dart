@@ -46,10 +46,10 @@ class BarcodeData {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-          other is BarcodeData &&
-              runtimeType == other.runtimeType &&
-              type == other.type &&
-              data == other.data;
+      other is BarcodeData &&
+          runtimeType == other.runtimeType &&
+          type == other.type &&
+          data == other.data;
 
   /// Generates a hash code for this [BarcodeData] instance.
   ///
@@ -65,4 +65,3 @@ class BarcodeData {
     return 'BarcodeData{data: $data, type: $type}';
   }
 }
-

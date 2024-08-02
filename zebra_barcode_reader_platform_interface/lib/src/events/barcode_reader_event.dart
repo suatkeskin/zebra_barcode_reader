@@ -52,9 +52,9 @@ class ScannerStatusEvent extends ReaderEvent {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-          other is ScannerStatusEvent &&
-              runtimeType == other.runtimeType &&
-              status == other.status;
+      other is ScannerStatusEvent &&
+          runtimeType == other.runtimeType &&
+          status == other.status;
 
   @override
   int get hashCode => status.hashCode;
@@ -89,9 +89,9 @@ class BarcodeReadEvent extends ReaderEvent {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-          other is BarcodeReadEvent &&
-              runtimeType == other.runtimeType &&
-              barcode == other.barcode;
+      other is BarcodeReadEvent &&
+          runtimeType == other.runtimeType &&
+          barcode == other.barcode;
 
   @override
   int get hashCode => barcode.hashCode;

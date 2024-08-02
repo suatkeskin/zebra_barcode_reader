@@ -27,9 +27,9 @@ class BarcodeReader {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-          other is BarcodeReader &&
-              runtimeType == other.runtimeType &&
-              name == other.name;
+      other is BarcodeReader &&
+          runtimeType == other.runtimeType &&
+          name == other.name;
 
   /// Generates a hash code for this [BarcodeReader] instance.
   ///
