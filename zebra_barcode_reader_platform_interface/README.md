@@ -11,7 +11,8 @@ same interface.
 To implement a new platform-specific implementation of `zebra_barcode_reader`, extend
 [`ZebraBarcodeReaderPlatform`][2] with an implementation that performs the
 platform-specific behavior, and when you register your plugin, set the default
-`ZebraBarcodeReaderLoader` by calling the `ZebraBarcodeReaderPlatform.loader` setter.
+`ZebraBarcodeReaderPlatform` by calling
+the `ZebraBarcodeReaderPlatform.instance = MyPlatformZebraBarcodeReader()` setter.
 
 # Note on breaking changes
 
