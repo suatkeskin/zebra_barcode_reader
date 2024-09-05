@@ -42,13 +42,18 @@ class ZebraBarcodeReaderAndroid extends ZebraBarcodeReaderPlatform {
   }
 
   @override
-  Future<void> connect() {
-    return _api.connect();
+  Future<void> connect(ReadingMode readingMode) {
+    return _api.connect(readingMode.value);
   }
 
   @override
   Future<void> disconnect() {
     return _api.disconnect();
+  }
+
+  @override
+  Future<void> setReadingMode(ReadingMode readingMode) {
+    return _api.setReadingMode(readingMode.value);
   }
 
   @override

@@ -132,18 +132,30 @@ public class BarcodeReaderDelegate extends BroadcastReceiver {
         applicationContext.sendBroadcast(intent);
     }
 
-    public void connect() {
-        Log.d(getClass().getSimpleName(), "DataWedge enabled, connecting...");
-        registerScannerStatusChangeNotification();
-        registerReceivers();
+    public void connect(Long readingMode) {
+        if (readingMode == 0) {
+            Log.d(getClass().getSimpleName(), "DataWedge enabled, connecting...");
+            registerScannerStatusChangeNotification();
+            registerReceivers();
 
-        // Get DataWedge version
-        // Use GET_VERSION_INFO: http://techdocs.zebra.com/datawedge/latest/guide/api/getversioninfo/
-        // must be called after registering BroadcastReceiver
-        sendDataWedgeIntentWithExtra(DataWedgeConstants.EXTRA_GET_VERSION_INFO, "");
-        sendDataWedgeIntentWithExtra(DataWedgeConstants.EXTRA_GET_SCANNER_STATUS, "");
+            // Get DataWedge version
+            // Use GET_VERSION_INFO: http://techdocs.zebra.com/datawedge/latest/guide/api/getversioninfo/
+            // must be called after registering BroadcastReceiver
+            sendDataWedgeIntentWithExtra(DataWedgeConstants.EXTRA_GET_VERSION_INFO, "");
+            sendDataWedgeIntentWithExtra(DataWedgeConstants.EXTRA_GET_SCANNER_STATUS, "");
 
-        createProfileIfNotExist();
+            createProfileIfNotExist();
+        } else if (readingMode == 1) {
+            Log.d(getClass().getSimpleName(), "Not implemented yet");
+            // TODO(suat): implement RFID reading mode
+        } else {
+            Log.d(getClass().getSimpleName(), "Invalid reading mode");
+        }
+    }
+
+    public void setReadingMode(Long readingMode) {
+        /// TODO(suat): implement RFID reading mode change feature
+        throw new UnsupportedOperationException("Not implemented yet");
     }
 
     private void createProfileIfNotExist() {

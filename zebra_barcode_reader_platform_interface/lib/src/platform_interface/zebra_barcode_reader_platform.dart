@@ -43,13 +43,18 @@ abstract class ZebraBarcodeReaderPlatform extends PlatformInterface {
   }
 
   /// Connects to reader.
-  Future<void> connect() {
+  Future<void> connect(ReadingMode readingMode) {
     throw UnimplementedError('connect() has not been implemented.');
   }
 
   /// Disconnects from reader.
   Future<void> disconnect() {
     throw UnimplementedError('disconnect() is not implemented.');
+  }
+
+  /// Sets the reading mode.
+  Future<void> setReadingMode(ReadingMode readingMode) {
+    throw UnimplementedError('setReadingMode() is not implemented.');
   }
 
   /// The scanner status changed.

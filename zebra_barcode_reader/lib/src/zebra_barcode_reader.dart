@@ -15,12 +15,16 @@ class ZebraBarcodeReader {
     return _reader.init(params);
   }
 
-  Future<void> connect() {
-    return _reader.connect();
+  Future<void> connect(ReadingMode readingMode) {
+    return _reader.connect(readingMode);
   }
 
   Future<void> disconnect() {
     return _reader.disconnect();
+  }
+
+  Future<void> setReadingMode(ReadingMode readingMode) {
+    return _reader.setReadingMode(readingMode);
   }
 
   Stream<ScannerStatusEvent> onScannerStatusEvent() {

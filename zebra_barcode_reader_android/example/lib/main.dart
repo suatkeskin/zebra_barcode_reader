@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:zebra_barcode_reader_android/zebra_barcode_reader_android.dart';
+import 'package:zebra_barcode_reader_platform_interface/zebra_barcode_reader_platform_interface.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -37,6 +38,7 @@ class _MyPageState extends State<MyPage> {
   bool _connected = false;
   late StreamSubscription<dynamic> _tagSubscription;
   late StreamSubscription<dynamic> _statusSubscription;
+  ReadingMode _readingMode = ReadingMode.barcode;
 
   @override
   void initState() {
@@ -55,6 +57,8 @@ class _MyPageState extends State<MyPage> {
 
   // Platform messages are asynchronous, so we initialize in an async method.
   Future<void> initPlatformState() async {
+    _platform.init(
+        BarcodeReaderInitParameters(readingMode: ReadingMode.barcode.value));
     _tagSubscription = _platform.onBarcodeReadEvent().listen((event) {
       setState(() {
         _tags.add(event.barcode.data);
@@ -84,22 +88,52 @@ class _MyPageState extends State<MyPage> {
         ),
         Align(
           alignment: Alignment.bottomCenter,
-          child: OutlinedButton(
-            onPressed: () async {
-              if (_connected) {
-                await _platform.disconnect();
-                setState(() {
-                  _tags = {};
-                });
-              } else {
-                await _platform.connect();
-                setState(() {
-                  _tags = {};
-                });
-              }
-            },
-            child:
-                _connected ? const Text('Disconnect') : const Text('Connect'),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              DropdownButton<ReadingMode>(
+                padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
+                borderRadius: BorderRadius.circular(10.0),
+                underline: const SizedBox(),
+                value: _readingMode,
+                items: const [
+                  DropdownMenuItem(
+                    value: ReadingMode.barcode,
+                    child: Text('Barcode'),
+                  ),
+                  DropdownMenuItem(
+                    value: ReadingMode.rfid,
+                    child: Text('RFID'),
+                  ),
+                ],
+                onChanged: (ReadingMode? newValue) {
+                  if (newValue != null) {
+                    setState(() {
+                      _platform.setReadingMode(newValue);
+                      _readingMode = newValue;
+                    });
+                  }
+                },
+              ),
+              OutlinedButton(
+                onPressed: () async {
+                  if (_connected) {
+                    await _platform.disconnect();
+                    setState(() {
+                      _tags = {};
+                    });
+                  } else {
+                    await _platform.connect(_readingMode);
+                    setState(() {
+                      _tags = {};
+                    });
+                  }
+                },
+                child: _connected
+                    ? const Text('Disconnect')
+                    : const Text('Connect'),
+              ),
+            ],
           ),
         ),
       ],

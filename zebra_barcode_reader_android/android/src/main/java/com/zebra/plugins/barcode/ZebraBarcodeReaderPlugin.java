@@ -27,17 +27,22 @@ public class ZebraBarcodeReaderPlugin implements FlutterPlugin, ZebraBarcodeRead
     @Override
     public void init(@NonNull Messages.InitParams params) {
         if (params.getAutoConnect()) {
-            barcodeReaderDelegate.connect();
+            barcodeReaderDelegate.connect(params.getReadingMode());
         }
     }
 
     @Override
-    public void connect() {
-        barcodeReaderDelegate.connect();
+    public void connect(@NonNull Long readingMode) {
+        barcodeReaderDelegate.connect(readingMode);
     }
 
     @Override
     public void disconnect() {
         barcodeReaderDelegate.dispose();
+    }
+
+    @Override
+    public void setReadingMode(@NonNull Long readingMode) {
+        barcodeReaderDelegate.setReadingMode(readingMode);
     }
 }

@@ -7,9 +7,11 @@ import 'package:pigeon/pigeon.dart';
 class InitParams {
   const InitParams({
     this.autoConnect = false,
+    this.readingMode = 0,
   });
 
   final bool autoConnect;
+  final int readingMode;
 }
 
 class BarcodeReaderDto {
@@ -30,7 +32,9 @@ class BarcodeReaderDto {
 abstract class ZebraBarcodeReaderApi {
   void init(InitParams params);
 
-  void connect();
+  void connect(int readingMode);
 
   void disconnect();
+
+  void setReadingMode(int readingMode);
 }

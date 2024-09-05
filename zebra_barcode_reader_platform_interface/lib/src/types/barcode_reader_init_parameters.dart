@@ -12,6 +12,7 @@ class BarcodeReaderInitParameters {
   /// connect to a barcode scanner upon initialization. It defaults to `false`.
   BarcodeReaderInitParameters({
     this.autoConnect = false,
+    this.readingMode = 0,
   });
 
   /// Whether the barcode reader should automatically connect to a scanner.
@@ -19,4 +20,5 @@ class BarcodeReaderInitParameters {
   /// If set to `true`, the reader will attempt to connect to a scanner device
   /// automatically during initialization. The default value is `false`.
   final bool autoConnect;
+  final int readingMode;
 }
