@@ -93,7 +93,7 @@ class _MyPageState extends State<MyPage> {
                   _barcodes = {};
                 });
               } else {
-                await _reader.connect();
+                await _reader.connect(ReadingMode.barcode);
                 setState(() {
                   _barcodes = {};
                 });
