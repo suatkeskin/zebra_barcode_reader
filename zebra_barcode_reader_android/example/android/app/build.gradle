@@ -34,7 +34,7 @@ android {
         applicationId "com.zebra.plugins.barcode.android.example"
         minSdkVersion flutter.minSdkVersion
         targetSdkVersion 34
-        minSdkVersion 23
+        minSdkVersion 26
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"

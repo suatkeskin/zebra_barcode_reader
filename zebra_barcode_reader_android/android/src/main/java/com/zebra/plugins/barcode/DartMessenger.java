@@ -39,6 +39,10 @@ public class DartMessenger {
          */
         BARCODE_READ("barcode_read"),
         /**
+         * Indicates that the new RFID tag read occurred.
+         */
+        RFID_TAG_READ("rfid_tag_read"),
+        /**
          * Indicates that the new barcode tag read occurred.
          */
         SCANNER_STATUS("scanner_status");
@@ -81,6 +85,21 @@ public class DartMessenger {
                 }
         );
     }
+
+    /**
+     * Sends a message to the Flutter client informing that the new tag read.
+     */
+    public void sendRfidTagReadEvent(String tagId) {
+        assert (tagId != null);
+        send(ReaderEventType.RFID_TAG_READ,
+                new HashMap<String, Object>() {
+                    {
+                        put("tagId", tagId);
+                    }
+                }
+        );
+    }
+
 
     /**
      * Sends a message to the Flutter client informing that the scanner status changed.

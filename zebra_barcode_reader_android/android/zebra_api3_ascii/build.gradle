@@ -1,0 +1,3 @@
+configurations.maybeCreate("default")
+artifacts.add("default", file('api3_ascii-release-2.0.2.125.aar'))
+

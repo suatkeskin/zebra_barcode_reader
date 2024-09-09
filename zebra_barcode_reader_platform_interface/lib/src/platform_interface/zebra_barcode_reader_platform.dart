@@ -66,6 +66,10 @@ abstract class ZebraBarcodeReaderPlatform extends PlatformInterface {
   Stream<BarcodeReadEvent> onBarcodeReadEvent() {
     throw UnimplementedError('onBarcodeReadEvent() is not implemented.');
   }
+
+  Stream<RfidTagReadEvent> onRfidTagReadEvent() {
+    throw UnimplementedError('onRfidTagReadEvent() is not implemented.');
+  }
 }
 
 class _PlaceholderImplementation extends ZebraBarcodeReaderPlatform {}

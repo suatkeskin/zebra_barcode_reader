@@ -14,14 +14,14 @@ public class ZebraBarcodeReaderPlugin implements FlutterPlugin, ZebraBarcodeRead
 
     @Override
     public void onAttachedToEngine(@NonNull FlutterPluginBinding binding) {
-        this.barcodeReaderDelegate = new BarcodeReaderDelegate(binding);
+        this.barcodeReaderDelegate = new BarcodeReaderDelegate(binding, new ZebraRFIDReaderDelegate(binding));
         ZebraBarcodeReaderApi.setUp(binding.getBinaryMessenger(), this);
     }
 
     @Override
     public void onDetachedFromEngine(@NonNull FlutterPluginBinding binding) {
         ZebraBarcodeReaderApi.setUp(binding.getBinaryMessenger(), null);
-        barcodeReaderDelegate.dispose();
+        barcodeReaderDelegate.disposeScanner();
     }
 
     @Override
@@ -38,7 +38,7 @@ public class ZebraBarcodeReaderPlugin implements FlutterPlugin, ZebraBarcodeRead
 
     @Override
     public void disconnect() {
-        barcodeReaderDelegate.dispose();
+        barcodeReaderDelegate.disconnect();
     }
 
     @Override

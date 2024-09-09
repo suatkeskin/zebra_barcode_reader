@@ -38,6 +38,7 @@ class _MyPageState extends State<MyPage> {
   bool _connected = false;
   late StreamSubscription<dynamic> _tagSubscription;
   late StreamSubscription<dynamic> _statusSubscription;
+  late StreamSubscription<dynamic> _rfidTagReadSubscription;
   ReadingMode _readingMode = ReadingMode.barcode;
 
   @override
@@ -52,6 +53,7 @@ class _MyPageState extends State<MyPage> {
   void dispose() {
     _tagSubscription.cancel();
     _statusSubscription.cancel();
+    _rfidTagReadSubscription.cancel();
     super.dispose();
   }
 
@@ -67,6 +69,11 @@ class _MyPageState extends State<MyPage> {
     _statusSubscription = _platform.onScannerStatusEvent().listen((event) {
       setState(() {
         _connected = event.status.isConnected;
+      });
+    });
+    _rfidTagReadSubscription = _platform.onRfidTagReadEvent().listen((event) {
+      setState(() {
+        _tags.add(event.tagId);
       });
     });
   }
@@ -92,7 +99,8 @@ class _MyPageState extends State<MyPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               DropdownButton<ReadingMode>(
-                padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
                 borderRadius: BorderRadius.circular(10.0),
                 underline: const SizedBox(),
                 value: _readingMode,
@@ -110,6 +118,7 @@ class _MyPageState extends State<MyPage> {
                   if (newValue != null) {
                     setState(() {
                       _platform.setReadingMode(newValue);
+                      _tags.clear();
                       _readingMode = newValue;
                     });
                   }

@@ -23,3 +23,21 @@ plugins {
 }
 
 include ":app"
+include ":zebra_api3_ascii"
+project(":zebra_api3_ascii").projectDir = file("../../android/zebra_api3_ascii")
+include ":zebra_api3_cmn"
+project(":zebra_api3_cmn").projectDir = file("../../android/zebra_api3_cmn")
+include ":zebra_api3_interface"
+project(":zebra_api3_interface").projectDir = file("../../android/zebra_api3_interface")
+include ":zebra_api3_llrp"
+project(":zebra_api3_llrp").projectDir = file("../../android/zebra_api3_llrp")
+include ":zebra_api3_reader"
+project(":zebra_api3_reader").projectDir = file("../../android/zebra_api3_reader")
+include ":zebra_api3_transport"
+project(":zebra_api3_transport").projectDir = file("../../android/zebra_api3_transport")
+include ":zebra_api3_ziotc"
+project(":zebra_api3_ziotc").projectDir = file("../../android/zebra_api3_ziotc")
+include ":zebra_api3_ziotc_transport"
+project(":zebra_api3_ziotc_transport").projectDir = file("../../android/zebra_api3_ziotc_transport")
+include ":zebra_barcode_scanner"
+project(":zebra_barcode_scanner").projectDir = file("../../android/zebra_barcode_scanner")

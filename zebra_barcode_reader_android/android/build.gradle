@@ -55,4 +55,13 @@ android {
 
 dependencies {
     implementation 'com.google.guava:guava:33.2.1-android'
+    implementation project(':zebra_api3_llrp')
+    implementation project(':zebra_api3_ascii')
+    implementation project(':zebra_api3_ziotc_transport')
+    implementation project(':zebra_api3_transport')
+    implementation project(':zebra_api3_ziotc')
+    implementation project(':zebra_api3_interface')
+    implementation project(':zebra_api3_cmn')
+    implementation project(':zebra_api3_reader')
+    implementation project(':zebra_barcode_scanner')
 }

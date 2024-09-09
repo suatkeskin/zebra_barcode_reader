@@ -101,3 +101,41 @@ class BarcodeReadEvent extends ReaderEvent {
     return 'BarcodeReadEvent{barcode: $barcode}';
   }
 }
+
+
+/// An event fired when a new RFID tag is read.
+class RfidTagReadEvent extends ReaderEvent {
+  /// Build a RfidTagReadEvent event triggered from the reader.
+  ///
+  /// The `tagId` represents the RFID tag id.
+  RfidTagReadEvent({
+    required this.tagId,
+  });
+
+  /// The RFID tag id.
+  late final String tagId;
+
+  /// Converts the supplied [Map] to an instance of the [RfidTagReadEvent]
+  /// class.
+  RfidTagReadEvent.fromJson(Map<String, dynamic> json) {
+    tagId = json['tagId'] as String;
+  }
+
+  /// Converts the [RfidTagReadEvent] instance into a [Map] instance that
+  /// can be serialized to JSON.
+  Map<String, dynamic> toJson() {
+    final data = <String, dynamic>{};
+    data['tagId'] = tagId;
+    return data;
+  }
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is RfidTagReadEvent &&
+          runtimeType == other.runtimeType &&
+          tagId == other.tagId;
+
+  @override
+  int get hashCode => tagId.hashCode;
+}

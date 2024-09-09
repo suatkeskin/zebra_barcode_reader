@@ -66,6 +66,11 @@ class ZebraBarcodeReaderAndroid extends ZebraBarcodeReaderPlatform {
     return _readerEvents().whereType<BarcodeReadEvent>();
   }
 
+  @override
+  Stream<RfidTagReadEvent> onRfidTagReadEvent() {
+    return _readerEvents().whereType<RfidTagReadEvent>();
+  }
+
   @visibleForTesting
   Future<dynamic> handleReaderMethodCall(MethodCall call) async {
     final Map<String, dynamic> arguments = _getArgumentDictionary(call);
@@ -77,6 +82,10 @@ class ZebraBarcodeReaderAndroid extends ZebraBarcodeReaderPlatform {
       case 'barcode_read':
         _readerEventStreamController.add(
           BarcodeReadEvent.fromJson(arguments),
+        );
+      case 'rfid_tag_read':
+        _readerEventStreamController.add(
+          RfidTagReadEvent.fromJson(arguments),
         );
       default:
         throw MissingPluginException();

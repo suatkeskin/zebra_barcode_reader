@@ -25,9 +25,12 @@ public class BarcodeReaderDelegate extends BroadcastReceiver {
     private final Context applicationContext;
     private final DartMessenger dartMessenger;
     private ScannerStatus scannerStatus;
+    private final ZebraRFIDReaderDelegate rfidReaderDelegate;
+    private final BackgroundTaskRunner backgroundTaskRunner = new BackgroundTaskRunner(1);
 
-    public BarcodeReaderDelegate(@NonNull FlutterPlugin.FlutterPluginBinding binding) {
+    public BarcodeReaderDelegate(@NonNull FlutterPlugin.FlutterPluginBinding binding, ZebraRFIDReaderDelegate rfidReaderDelegate) {
         applicationContext = binding.getApplicationContext();
+        this.rfidReaderDelegate = rfidReaderDelegate;
         final MethodChannel methodChannel = new MethodChannel(binding.getBinaryMessenger(), "plugins.zebra.com/barcode");
         this.dartMessenger = new DartMessenger(applicationContext, methodChannel, new Handler(Looper.getMainLooper()));
     }
@@ -118,7 +121,7 @@ public class BarcodeReaderDelegate extends BroadcastReceiver {
         }
     }
 
-    public void dispose() {
+    public void disposeScanner() {
         if (!scannerStatus.isConnected()) {
             return;
         }
@@ -146,16 +149,29 @@ public class BarcodeReaderDelegate extends BroadcastReceiver {
 
             createProfileIfNotExist();
         } else if (readingMode == 1) {
-            Log.d(getClass().getSimpleName(), "Not implemented yet");
-            // TODO(suat): implement RFID reading mode
+            ///TODO(suat): how to catch exception?
+            backgroundTaskRunner.runInBackground(
+                    rfidReaderDelegate::connect, connectReaderFuture -> {
+                    }
+            );
         } else {
             Log.d(getClass().getSimpleName(), "Invalid reading mode");
         }
     }
 
+    public void disconnect() {
+        if (scannerStatus.isConnected()) {
+            disposeScanner();
+        }
+        if (rfidReaderDelegate.isConnected()) {
+            rfidReaderDelegate.dispose();
+        }
+    }
+
+
     public void setReadingMode(Long readingMode) {
-        /// TODO(suat): implement RFID reading mode change feature
-        throw new UnsupportedOperationException("Not implemented yet");
+        disconnect();
+        connect(readingMode);
     }
 
     private void createProfileIfNotExist() {
