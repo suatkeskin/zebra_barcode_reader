@@ -8,7 +8,7 @@ buildscript {
     }
 
     dependencies {
-        classpath("com.android.tools.build:gradle:8.5.1")
+        classpath("com.android.tools.build:gradle:8.5.2")
     }
 }
 
@@ -54,5 +54,5 @@ android {
 }
 
 dependencies {
-    implementation 'com.google.guava:guava:33.2.1-android'
+    implementation 'com.google.guava:guava:33.3.0-android'
 }
