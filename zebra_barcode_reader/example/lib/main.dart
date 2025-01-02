@@ -56,6 +56,7 @@ class _MyPageState extends State<MyPage> {
 
   // Platform messages are asynchronous, so we initialize in an async method.
   Future<void> initPlatformState() async {
+    await _reader.init(BarcodeReaderInitParameters(autoConnect: true));
     _barcodeSubscription = _reader.onBarcodeReadEvent().listen((event) {
       setState(() {
         _barcodes.add(event.barcode.data);

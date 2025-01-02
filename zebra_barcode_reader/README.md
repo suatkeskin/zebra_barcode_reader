@@ -1,4 +1,4 @@
-# Zebra Barcode Reader plugin
+# Zebra Barcode Reader plugin   
 
 <?code-excerpt path-base="example/lib"?>
 
