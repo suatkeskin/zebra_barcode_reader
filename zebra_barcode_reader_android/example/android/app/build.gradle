@@ -33,7 +33,7 @@ android {
     defaultConfig {
         applicationId "com.zebra.plugins.barcode.android.example"
         minSdkVersion flutter.minSdkVersion
-        targetSdkVersion 34
+        targetSdkVersion 35
         minSdkVersion 23
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
