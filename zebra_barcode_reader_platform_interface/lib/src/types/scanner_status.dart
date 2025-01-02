@@ -25,6 +25,21 @@ enum ScannerStatus {
   /// The external scanner is disconnected
   disconnected;
 
+  /// Indicates whether the scanner is in a connected and operational state.
+  ///
+  /// A scanner is considered connected if it is not in the `disabled` or
+  /// `disconnected` state. This property returns `true` if the scanner is
+  /// in any state other than `ScannerStatus.disabled` or
+  /// `ScannerStatus.disconnected`; otherwise, it returns `false`.
+  ///
+  /// ### Example
+  /// ```dart
+  /// if (scannerStatus.isConnected) {
+  ///   print("The scanner is operational.");
+  /// } else {
+  ///   print("The scanner is not connected.");
+  /// }
+  /// ```
   bool get isConnected =>
       !(this == ScannerStatus.disabled || this == ScannerStatus.disconnected);
 }
