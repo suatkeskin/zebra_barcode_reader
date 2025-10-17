@@ -2,11 +2,11 @@ name: zebra_barcode_reader
 description: Flutter plugin for reading barcodes.
 repository: https://github.com/suatkeskin/zebra_barcode_reader/tree/main/zebra_barcode_reader
 issue_tracker: https://github.com/suatkeskin/zebra_barcode_reader/issues
-version: 1.0.1
+version: 1.0.2
 
 environment:
-  sdk: '>=3.4.3 <4.0.0'
-  flutter: '>=3.22.0'
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: '>=3.0.0'
 
 flutter:
   plugin:
@@ -17,11 +17,11 @@ flutter:
 dependencies:
   flutter:
     sdk: flutter
-  zebra_barcode_reader_android: ^1.0.1
-  zebra_barcode_reader_platform_interface: ^1.0.4
+  zebra_barcode_reader_android: ^1.0.3
+  zebra_barcode_reader_platform_interface: ^1.0.5
 
 dev_dependencies:
-  flutter_lints: ^5.0.0
+  flutter_lints: ^6.0.0
   flutter_test:
     sdk: flutter
   integration_test:
