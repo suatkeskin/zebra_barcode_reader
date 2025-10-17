@@ -1,3 +1,7 @@
+## 1.0.5
+
+* Project dependencies updated, no major improvements.
+
 ## 1.0.4
 
 * Project dependencies updated, no major improvements.
