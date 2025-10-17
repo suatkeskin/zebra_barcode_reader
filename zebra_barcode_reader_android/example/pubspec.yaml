@@ -4,15 +4,16 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
 environment:
   sdk: '>=3.0.0 <4.0.0'
+  flutter: '>=3.0.0'
 
 dependencies:
   flutter:
     sdk: flutter
 
+  stream_transform: ^2.1.1
+  zebra_barcode_reader_platform_interface: ^1.0.5
   zebra_barcode_reader_android:
     path: ../
-  zebra_barcode_reader_platform_interface: ^1.0.5
-  stream_transform: ^2.1.1
 
 dev_dependencies:
   integration_test:

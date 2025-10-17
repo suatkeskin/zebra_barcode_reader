@@ -1,1 +1,2 @@
 rootProject.name = 'zebra_barcode_reader_android'
+include ':zebra_barcode_scanner'
