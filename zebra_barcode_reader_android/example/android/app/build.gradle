@@ -24,7 +24,7 @@ if (flutterVersionName == null) {
 
 android {
     namespace 'com.zebra.plugins.barcode.android.example'
-    compileSdk 34
+    compileSdk 36
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
@@ -33,8 +33,8 @@ android {
     defaultConfig {
         applicationId "com.zebra.plugins.barcode.android.example"
         minSdkVersion flutter.minSdkVersion
-        targetSdkVersion 35
-        minSdkVersion 23
+        targetSdkVersion 36
+        minSdkVersion flutter.minSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"

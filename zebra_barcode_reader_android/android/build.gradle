@@ -8,7 +8,7 @@ buildscript {
     }
 
     dependencies {
-        classpath("com.android.tools.build:gradle:8.5.2")
+        classpath("com.android.tools.build:gradle:8.13.0")
     }
 }
 
@@ -26,7 +26,7 @@ android {
         namespace = "com.zebra.plugins.barcode"
     }
 
-    compileSdk = 34
+    compileSdk = 36
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -39,7 +39,7 @@ android {
 
     dependencies {
         testImplementation("junit:junit:4.13.2")
-        testImplementation("org.mockito:mockito-core:5.11.0")
+        testImplementation("org.mockito:mockito-core:5.20.0")
     }
 
     testOptions {
@@ -54,5 +54,5 @@ android {
 }
 
 dependencies {
-    implementation 'com.google.guava:guava:33.3.0-android'
+    implementation 'com.google.guava:guava:33.5.0-android'
 }
