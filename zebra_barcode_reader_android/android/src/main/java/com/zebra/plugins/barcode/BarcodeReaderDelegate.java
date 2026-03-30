@@ -147,36 +147,39 @@ public class BarcodeReaderDelegate extends BroadcastReceiver {
     }
 
     private void createProfileIfNotExist() {
-        // Send DataWedge intent with extra to create profile
-        // Use CREATE_PROFILE: http://techdocs.zebra.com/datawedge/latest/guide/api/createprofile/
-        sendDataWedgeIntentWithExtra(DataWedgeConstants.EXTRA_CREATE_PROFILE, getApplicationName());
+        final String profileName = getApplicationName();
 
-        // Configure created profile to apply to this app
+        // Configure profile with APP_LIST and BARCODE plugin
+        // Use SET_CONFIG with CREATE_IF_NOT_EXIST: http://techdocs.zebra.com/datawedge/latest/guide/api/setconfig/
         final Bundle profileConfig = new Bundle();
-        profileConfig.putString("PROFILE_NAME", getApplicationName());
+        profileConfig.putString("PROFILE_NAME", profileName);
         profileConfig.putString("PROFILE_ENABLED", "true");
-        profileConfig.putString("CONFIG_MODE", "CREATE_IF_NOT_EXIST");  // Create profile if it does not exist
-
-        // Configure barcode input plugin
-        final Bundle barcodeConfig = new Bundle();
-        barcodeConfig.putString("PLUGIN_NAME", "BARCODE");
-        barcodeConfig.putString("RESET_CONFIG", "true"); //  This is the default
-        final Bundle barcodeProps = new Bundle();
-        barcodeConfig.putBundle("PARAM_LIST", barcodeProps);
-        profileConfig.putBundle("PLUGIN_CONFIG", barcodeConfig);
+        profileConfig.putString("CONFIG_MODE", "CREATE_IF_NOT_EXIST");
 
         // Associate profile with this app
         final Bundle appConfig = new Bundle();
         appConfig.putString("PACKAGE_NAME", applicationContext.getPackageName());
         appConfig.putStringArray("ACTIVITY_LIST", new String[]{"*"});
         profileConfig.putParcelableArray("APP_LIST", new Bundle[]{appConfig});
-        profileConfig.remove("PLUGIN_CONFIG");
 
-        // Apply configs
-        // Use SET_CONFIG: http://techdocs.zebra.com/datawedge/latest/guide/api/setconfig/
+        // Configure barcode input plugin
+        final Bundle barcodeConfig = new Bundle();
+        barcodeConfig.putString("PLUGIN_NAME", "BARCODE");
+        barcodeConfig.putString("RESET_CONFIG", "true");
+        final Bundle barcodeProps = new Bundle();
+        barcodeConfig.putBundle("PARAM_LIST", barcodeProps);
+        profileConfig.putBundle("PLUGIN_CONFIG", barcodeConfig);
+
+        // First call: Create/update profile with APP_LIST and BARCODE config
         sendDataWedgeIntentWithExtra(DataWedgeConstants.EXTRA_SET_CONFIG, profileConfig);
 
-        // Configure intent output for captured data to be sent to this app
+        // Configure intent output in a separate SET_CONFIG call with UPDATE mode
+        // This ensures intent config is applied even if APP_LIST already exists
+        final Bundle intentProfileConfig = new Bundle();
+        intentProfileConfig.putString("PROFILE_NAME", profileName);
+        intentProfileConfig.putString("PROFILE_ENABLED", "true");
+        intentProfileConfig.putString("CONFIG_MODE", "UPDATE");
+
         final Bundle intentConfig = new Bundle();
         intentConfig.putString("PLUGIN_NAME", "INTENT");
         intentConfig.putString("RESET_CONFIG", "true");
@@ -185,8 +188,10 @@ public class BarcodeReaderDelegate extends BroadcastReceiver {
         intentProps.putString("intent_action", DataWedgeConstants.ACTIVITY_INTENT_FILTER_ACTION);
         intentProps.putString("intent_delivery", "2");
         intentConfig.putBundle("PARAM_LIST", intentProps);
-        profileConfig.putBundle("PLUGIN_CONFIG", intentConfig);
-        sendDataWedgeIntentWithExtra(DataWedgeConstants.EXTRA_SET_CONFIG, profileConfig);
+        intentProfileConfig.putBundle("PLUGIN_CONFIG", intentConfig);
+
+        // Second call: Update profile with INTENT config (independent of first call's result)
+        sendDataWedgeIntentWithExtra(DataWedgeConstants.EXTRA_SET_CONFIG, intentProfileConfig);
     }
 
     public void registerReceivers() {
