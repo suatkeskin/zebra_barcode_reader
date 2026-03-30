@@ -1,3 +1,7 @@
+## 1.0.3
+
+* DataWedge intent create profile fix.
+
 ## 1.0.2
 
 * Project dependencies updated, no major improvements.
